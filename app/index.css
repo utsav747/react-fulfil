@@ -1,3 +1,125 @@
 body{
   background: rgb(245, 245, 245);
+  margin: 0px;
+  padding: 0px;
+}
+
+.topphoto{
+  /*position: absolute;*/
+  /*background: lightblue;*/
+  height: 200px;
+}
+
+.topdetails{
+  /*position: absolute;*/
+  /*background: lightblue;*/
+  height: 200px;
+}
+
+.sidebar{
+  background: rgb(29, 38, 55);
+  margin: 0px;
+  padding: 0px;
+  /*width: 300px;*/
+  height: 100%;
+  display: flex;
+  position: fixed;
+  /*overflow: hidden;
+  float: left;
+  clear: both;*/
+
+}
+
+.picbox{
+  position: relative;
+  top: 0px;
+  width: 60px;
+  height: 60px;
+  margin: 5px;
+  border-radius: 50%;
+  background: blue;
+
+}
+
+.button{
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+}
+
+.detailview{
+  display: flex;
+  flex-direction: column;
+  /*background: green;*/
+  align-items: flex-start;
+  padding: 5px;
+
+}
+
+.iconview{
+  /*background: red;*/
+  display: flex;
+  flex-direction: column;
+  /*align-content: center;*/
+  padding: 5px;
+}
+
+.icons{
+  /*position: relative;*/
+  /*top: 1000px;*/
+  /*background: black;*/
+  /*align-items: center;
+  align-content: center;*/
+  padding: 5px;
+  /*left: 0px;*/
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.menu{
+  /*position: relative;*/
+  padding: 5px;
+  /*background: black;*/
+  margin: 0px;
+}
+
+.footer{
+
+}
+
+.profiledetails{
+  position: relative;
+  top: 0px;
+}
+
+.footeroptions{
+
+}
+
+.submenu{
+
+}
+
+.submenuheading{
+
+}
+
+li{
+  list-style-type: none;
+  font-family: roboto, sans-serif;
+  color: rgb(212, 217, 228);
+  position: relative;
+  left: 0px;
+  text-align: left;
+  margin-left: -10px;
+  margin: 0px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+ul{
+  padding: 0px;
+  margin: 0px;
 }

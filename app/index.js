@@ -15,10 +15,10 @@ class App extends React.Component {
 class Sidebar extends React.Component {
   render() {
     return (
-      <div>
-        // <IconView />
+      <div className = "sidebar">
+        <IconView />
         <DetailView />
-        // <Button />
+        <Button />
       </div>
     )
   }
@@ -38,7 +38,7 @@ class IconView extends React.Component {
     var icons = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
     var footerIcons = ["footericon1", "footericon2", "footericon3"];
     return (
-      <div>
+      <div className = "iconview">
         <Profile photo = "photo-url-here" />
         <Icons items = {icons}/>
         <Footer items = {footerIcons}/>
@@ -50,7 +50,7 @@ class IconView extends React.Component {
 class Icons extends React.Component {
   render() {
     return (
-      <div>
+      <div className = "icons">
         <ul>
           {this.props.items.map(function(icon, index){
             return <li key = {index}>icon</li>;
@@ -64,9 +64,12 @@ class Icons extends React.Component {
 class Profile extends React.Component {
   render() {
     return(
-      <div className = "picContainer">
-        {this.props.photo}
+      <div className = "topphoto">
+        <div className = "picbox">
+          {this.props.photo}
+        </div>
       </div>
+
     )
   }
 }
@@ -74,7 +77,7 @@ class Profile extends React.Component {
 class Footer extends React.Component{
   render() {
     return(
-      <div>
+      <div className = "footer">
         {this.props.items.map(function(footericon, index){
           <li key = {index}>footericon</li>
         })}
@@ -88,7 +91,7 @@ class DetailView extends React.Component {
     var menus = ["Contacts", "Product", "Sales", "Purchase", "Shipping", "Inventory & Stock", "Production", "Financial", "Settings", "Administration"];
     var footerOptions = ["footerOption1", "footerOption2", "footerOption3"];
     return(
-      <div>
+      <div className = "detailview">
         <ProfileDetails />
         <Menu items = {menus}/>
         <FooterOptions items = {footerOptions} />
@@ -100,9 +103,11 @@ class DetailView extends React.Component {
 class ProfileDetails extends React.Component{
   render() {
     return(
-      <div>
-        <li>Name</li>
-        <li>Email</li>
+      <div className = "topdetails">
+        <div className = "profiledetails">
+          <li>Name</li>
+          <li>Email</li>
+        </div>
       </div>
     )
   }
@@ -111,7 +116,7 @@ class ProfileDetails extends React.Component{
 class Menu extends React.Component{
   render() {
     return(
-      <div>
+      <div className = "menu">
         <ul>
           {this.props.items.map(function(item){
             return <li key = {item}>{item}</li>;
@@ -125,7 +130,7 @@ class Menu extends React.Component{
 class FooterOptions extends React.Component{
   render() {
     return(
-      <div>
+      <div className = "footeroptions">
         {this.props.items.map(function(option){
           <li key = {option}>option</li>
         })}
@@ -138,8 +143,8 @@ class SubMenu extends React.Component{
   render() {
     var submenuOptions = ["Product templates", "Products", "Categories", "Attributes", "Tree Nodes", "Gift Card", "Bill of Materials(BOM)", "Price Lists", "Product suppliers", "Attribute sets", "Reports", "Import product locations"];
     return(
-      <div>
-        <h3 className = "SubMenuHeading">{this.props.SuperName}</h3>
+      <div className = "submenu">
+        <h3 className = "submenuheading">{this.props.SuperName}</h3>
         <ul>
           {this.props.submenuOptions.map(function(item){
             <li key = {item}>item</li>
