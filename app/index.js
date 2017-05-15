@@ -18,25 +18,34 @@ class Sidebar extends React.Component {
     this.state = {
       isExpanded: false
     };
+    this.state = {
+      subMenuOn: false
+    };
 
   this.handleExpansion = this.handleExpansion.bind(this);
+  this.showSubMenu = this.showSubMenu.bind(this);
 
   }
 
   handleExpansion(prevState) {
     this.setState(function () {
       return {isExpanded: !prevState.isExpanded}
-    })
+    });
   }
+
+  showSubMenu(prevState) {
+    this.setState(function() {
+      return {subMenuOn: !prevState.subMenuOn}
+    });
+  }
+
   render() {
-
-
     return (
       <div className = "sidebar">
         <IconView />
         {this.state.isExpanded ? <DetailView /> : null}
         <Button />
-        <SubMenu />
+        {this.state.subMenuOn ? <SubMenu /> : null}
       </div>
     )
  }
@@ -50,7 +59,7 @@ class Button extends React.Component {
 
         className = "button">
         <button
-          onClick={console.log("utsav")}>
+          onClick={this.handleExpansion}>
           <div
             className = "buttonitems">
             <p className = "rotate">Expand</p>
@@ -82,7 +91,9 @@ class IconView extends React.Component {
 class Icons extends React.Component {
   render() {
     return (
-      <div className = "icons">
+      <div
+        onMouseOver = {this.showSubMenu}
+        className = "icons">
         <ul>
           {this.props.items.map(function(icon, index){
             return <li key = {index}><img src ={icon} /></li>;
