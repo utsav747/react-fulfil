@@ -5,30 +5,60 @@ require('./index.css');
 class App extends React.Component {
   render() {
     return (
-      <div>
-        <Sidebar />
-      </div>
+        <div>
+          <Sidebar />
+        </div>
     )
   }
 }
 
 class Sidebar extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      isExpanded: false
+    };
+
+  this.handleExpansion = this.handleExpansion.bind(this);
+
+  }
+
+  handleExpansion(prevState) {
+    this.setState(function () {
+      return {isExpanded: !prevState.isExpanded}
+    })
+  }
   render() {
+
+
     return (
       <div className = "sidebar">
         <IconView />
-        <DetailView />
+        {this.state.isExpanded ? <DetailView /> : null}
         <Button />
+        <SubMenu />
       </div>
     )
-  }
+ }
 }
 
 class Button extends React.Component {
   render() {
     return(
-      <div className = "button">
-        <p>Expand</p>
+      <div
+        type="button"
+
+        className = "button">
+        <button
+          onClick={console.log("utsav")}>
+          <div
+            className = "buttonitems">
+            <p className = "rotate">Expand</p>
+            <p>&#x3009;</p>
+            <p className = "rotate">Collapse</p>
+            <p>&#x3008;</p>
+          </div>
+        </button>
       </div>
     )
   }
@@ -39,7 +69,8 @@ class IconView extends React.Component {
     var icons = ["./svg/001-user-silhouette.svg", "../svg/002-integrated-circuit.svg", "../svg/003-dollar-symbol.svg", "../svg/004-shopping-cart.svg", "../svg/005-truck.svg", "../svg/006-restaurant.svg", "../svg/007-target-of-concentric-circles.svg", "../svg/008-bank-symbol.svg", "../svg/009-settings-work-tool.svg", "../svg/010-old-fashion-briefcase.svg"];
     var footerIcons = ["../svg/011-search.svg", "../svg/012-question.svg", "../svg/013-window-of-four-rounded-squares.svg"];
     return (
-      <div className = "iconview">
+      <div
+        className = "iconview">
         <Profile photo = "photo-url-here" />
         <Icons items = {icons}/>
         <Footer items = {footerIcons}/>
@@ -123,7 +154,6 @@ class Menu extends React.Component{
             return <li key = {item}>{item}</li>;
           })}
         </ul>
-        <SubMenu />
       </div>
 
     )

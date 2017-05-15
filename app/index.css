@@ -9,6 +9,7 @@ body{
   font-family: questrial;
   src: url(/Fonts/questrial-regular.ttf);
 }
+
 .topphoto{
   height: 150px;
 }
@@ -48,6 +49,18 @@ img{
   overflow: hidden;
 }
 
+button{
+  position: absolute;
+  z-index: -1;
+  top: 0px;
+  bottom: 0px;
+  background: rgba(255, 255, 255, 0.01);
+  display: flex;
+  border: none;
+  box-shadow: 6px 0px 10px 1px rgba(169, 169, 169, 0.64);
+
+}
+
 .button{
   position: absolute;
   z-index: -1;
@@ -56,10 +69,20 @@ img{
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: rgb(210, 216, 227);
+  align-items: center;
+  background: rgba(210, 216, 227, 0.43);
+  box-shadow: 6px 0px 10px 1px rgba(169, 169, 169, 0.64);
 }
 
-p{
+.buttonitems{
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.rotate{
   transform: rotate(90deg);
   font-size: 85%;
   padding: 0px;
@@ -89,9 +112,10 @@ p{
 
 .menu{
   padding: 5px;
-  padding-left: 10px;
+  padding-left: 0px;
   padding-right: 30px;
   margin: 0px;
+  margin-left: -5px;
 }
 
 .menu li{
@@ -136,14 +160,16 @@ p{
 }
 
 .submenu{
-  padding: 30px;
-  margin-left: 50px;
-  margin-right: 50px;
+  display: flex;
+  flex-direction: column;
+  padding: 36px;
+  margin-left: 60px;
+  margin-right: 60px;
   margin: 0px;
   background: rgb(245, 245, 245);
   position: absolute;
-  right: -245px;
-  top: 143px;
+  right: -257px;
+  top: 138px;
   box-shadow: 6px 6px 10px 1px #A9A9A9;
 }
 
