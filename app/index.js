@@ -13,28 +13,29 @@ class App extends React.Component {
 }
 
 class Sidebar extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       isExpanded: false
     };
     this.state = {
-      subMenuOn: false
-    };
+     subMenuOn: false
+   };
+
 
   this.handleExpansion = this.handleExpansion.bind(this);
   this.showSubMenu = this.showSubMenu.bind(this);
 
   }
 
-  handleExpansion(prevState) {
-    this.setState(function () {
+  handleExpansion() {
+    this.setState(function (prevState) {
       return {isExpanded: !prevState.isExpanded}
     });
   }
 
-  showSubMenu(prevState) {
-    this.setState(function() {
+  showSubMenu() {
+    this.setState(function(prevState) {
       return {subMenuOn: !prevState.subMenuOn}
     });
   }
@@ -42,9 +43,9 @@ class Sidebar extends React.Component {
   render() {
     return (
       <div className = "sidebar">
-        <IconView />
+        <IconView showSubMenu = {this.showSubMenu}/>
         {this.state.isExpanded ? <DetailView /> : null}
-        <Button />
+        <Button handleExpansion = {this.handleExpansion}/>
         {this.state.subMenuOn ? <SubMenu /> : null}
       </div>
     )
@@ -59,7 +60,7 @@ class Button extends React.Component {
 
         className = "button">
         <button
-          onClick={this.handleExpansion}>
+          onClick={this.props.handleExpansion}>
           <div
             className = "buttonitems">
             <p className = "rotate">Expand</p>
@@ -81,7 +82,7 @@ class IconView extends React.Component {
       <div
         className = "iconview">
         <Profile photo = "photo-url-here" />
-        <Icons items = {icons}/>
+        <Icons hoover = {this.props.showSubMenu} items = {icons}/>
         <Footer items = {footerIcons}/>
       </div>
     )
@@ -92,7 +93,7 @@ class Icons extends React.Component {
   render() {
     return (
       <div
-        onMouseOver = {this.showSubMenu}
+        onMouseOver = {this.props.hoover}
         className = "icons">
         <ul>
           {this.props.items.map(function(icon, index){
