@@ -14,3 +14,4 @@ Room for improvements:
 1. When in expanded mode, above mentioned submenu shoould lodge itself with the sidebar and appear right below the icon/choice pair.
 2. Iconview and menu should split in order to accomodate the submenu.
 3. Footer icons/options will get reduced to horizontal formation and options will disappear leaving just icons in the footer.
+4. Transitions should be made more fluid and desirable for the user. react-motion might help.
